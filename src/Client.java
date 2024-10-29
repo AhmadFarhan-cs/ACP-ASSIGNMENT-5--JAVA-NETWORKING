@@ -34,7 +34,8 @@ public class Client {
             new Thread(new ReadMessages()).start();
             int choice = JOptionPane.showConfirmDialog(null, "Are you a new user?");
             out.writeInt(choice); // Send choice to server (new or existing user)
-            loginFrame = new LoginFrame(this); // Open login frame
+            if(choice != JOptionPane.CANCEL_OPTION)
+                loginFrame = new LoginFrame(this); // Open login frame
         } catch (IOException e) {
             System.out.println("Error in logging in ");
         }

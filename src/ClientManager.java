@@ -58,7 +58,7 @@ public class ClientManager extends Thread {
                     out.writeUTF("Registration successful welcome " + userName);
                     server.addUser(userName, passWord); // Register user
                     out.writeUTF("1"); // Login success signal to client
-                } else {
+                } else if(choice==JOptionPane.NO_OPTION) {
                     // Existing user login
                     userName = in.readUTF();
                     passWord = in.readUTF();
@@ -70,6 +70,9 @@ public class ClientManager extends Thread {
                     }
                     out.writeUTF("Login successful welcome " + userName);
                     out.writeUTF("1");
+                }
+                else {
+                    in.close();
                 }
 
                 loggedin = true;
