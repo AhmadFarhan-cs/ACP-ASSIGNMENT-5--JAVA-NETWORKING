@@ -55,9 +55,12 @@ public class LoginFrame extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent e){
         if(e.getSource() ==loginButton ||e.getSource()==usernameField||e.getSource()==passwordField){
+            if(usernameField.getText().isBlank()==false &&passwordField.getText().isBlank() == false){
         client.sendmsg(usernameField.getText());
-        client.sendmsg(passwordField.getText());
+        client.sendmsg(passwordField.getText());}
         }
+        else
+            JOptionPane.showMessageDialog(null,"Please enter user name and password");
     }
 
     public void handlelogin(){

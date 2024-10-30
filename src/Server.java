@@ -65,7 +65,7 @@ void waitforclient(){
 }
 
 //method that will send a msg to every client except the sender
-    public void broadcast(String message,ClientManager sender){
+    public synchronized void broadcast(String message,ClientManager sender){
         for (ClientManager client : clients){
             if(client !=sender)
                 client.sendMessage(message);
